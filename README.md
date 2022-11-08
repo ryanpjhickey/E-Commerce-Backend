@@ -8,7 +8,6 @@ Because this application won’t be deployed, you’ll also need to create a wal
 
 Before you start, clone [the starter code](https://github.com/coding-boot-camp/fantastic-umbrella).
 
-
 ## User Story
 
 ```md
@@ -51,7 +50,6 @@ The final animation shows the POST, PUT, and DELETE routes for categories being 
 
 Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
 
-
 ## Getting Started
 
 This Challenge will require a video submission. Refer to the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
@@ -64,83 +62,91 @@ Use the `schema.sql` file in the `db` folder to create your database using MySQL
 
 Your database should contain the following four models, including the requirements listed for each model:
 
-* `Category`
+- `Category`
 
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
+  - `id`
 
-  * `category_name`
-    * String
-    * Doesn't allow null values
+    - Integer
+    - Doesn't allow null values
+    - Set as primary key
+    - Uses auto increment
 
-* `Product`
+  - `category_name`
+    - String
+    - Doesn't allow null values
 
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
+- `Product`
 
-  * `product_name`
-    * String
-    * Doesn't allow null values
+  - `id`
 
-  * `price`
-    * Decimal
-    * Doesn't allow null values
-    * Validates that the value is a decimal
+    - Integer
+    - Doesn't allow null values
+    - Set as primary key
+    - Uses auto increment
 
-  * `stock`
-    * Integer
-    * Doesn't allow null values
-    * Set a default value of 10
-    * Validates that the value is numeric
+  - `product_name`
 
-  * `category_id`
-    * Integer
-    * References the `category` model's `id` 
+    - String
+    - Doesn't allow null values
 
-* `Tag`
+  - `price`
 
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
+    - Decimal
+    - Doesn't allow null values
+    - Validates that the value is a decimal
 
-  * `tag_name`
-    * String
+  - `stock`
 
-* `ProductTag`
+    - Integer
+    - Doesn't allow null values
+    - Set a default value of 10
+    - Validates that the value is numeric
 
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
+  - `category_id`
+    - Integer
+    - References the `category` model's `id`
 
-  * `product_id`
-    * Integer
-    * References the `product` model's `id`
+- `Tag`
 
-  * `tag_id`
-    * Integer
-    * References the `tag` model's `id`
+  - `id`
+
+    - Integer
+    - Doesn't allow null values
+    - Set as primary key
+    - Uses auto increment
+
+  - `tag_name`
+    - String
+
+- `ProductTag`
+
+  - `id`
+
+    - Integer
+    - Doesn't allow null values
+    - Set as primary key
+    - Uses auto increment
+
+  - `product_id`
+
+    - Integer
+    - References the `product` model's `id`
+
+  - `tag_id`
+    - Integer
+    - References the `tag` model's `id`
 
 ### Associations
 
 You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
-* `Product` belongs to `Category`, as a category can have multiple products but a product can only belong to one category.
+- `Product` belongs to `Category`, as a category can have multiple products but a product can only belong to one category.
 
-* `Category` has many `Product` models.
+- `Category` has many `Product` models.
 
-* `Product` belongs to many `Tag` models. Using the `ProductTag` through model, allow products to have multiple tags and tags to have many products.
+- `Product` belongs to many `Tag` models. Using the `ProductTag` through model, allow products to have multiple tags and tags to have many products.
 
-* `Tag` belongs to many `Product` models.
+- `Tag` belongs to many `Product` models.
 
 **Hint**: Make sure you set up foreign key relationships that match the column we created in the respective models.
 
@@ -160,14 +166,14 @@ After creating the models and routes, run `npm run seed` to seed data to your da
 
 Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
 
-
 ## Review
 
 You are required to submit BOTH of the following for review:
 
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
+- A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
-- - -
+---
+
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
