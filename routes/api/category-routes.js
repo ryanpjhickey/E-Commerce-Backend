@@ -50,33 +50,33 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((category) => {
-      // find all associated tags from Product
-      return Product.findAll({ where: { category_id: req.params.id } });
-    })
-    .then((categoryTags) => {
-      // get list of current tag_ids
-      const categoryTagIds = categoryTags.map(({ tag_id }) => tag_id);
-      // create filtered list of new tag_ids
-      const newCategoryTags = req.body.tagIds
-        .filter((tag_id) => !categoryTagIds.includes(tag_id))
-        .map((tag_id) => {
-          return {
-            category_id: req.params.id,
-            tag_id,
-          };
-        });
-      // figure out which ones to remove
-      const categoryTagsToRemove = categoryTags
-        .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
-        .map(({ id }) => id);
+    // .then((category) => {
+    //   // find all associated tags from Product
+    //   return Product.findAll({ where: { category_id: req.params.id } });
+    // })
+    // .then((categoryTags) => {
+    //   // get list of current tag_ids
+    //   const categoryTagIds = categoryTags.map(({ tag_id }) => tag_id);
+    //   // create filtered list of new tag_ids
+    //   const newCategoryTags = req.body.tagIds
+    //     .filter((tag_id) => !categoryTagIds.includes(tag_id))
+    //     .map((tag_id) => {
+    //       return {
+    //         category_id: req.params.id,
+    //         tag_id,
+    //       };
+    //     });
+    //   // figure out which ones to remove
+    //   const categoryTagsToRemove = categoryTags
+    //     .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+    //     .map(({ id }) => id);
 
-      // run both actions
-      return Promise.all([
-        Product.destroy({ where: { id: categoryTagsToRemove } }),
-        Product.bulkCreate(newCategoryTags),
-      ]);
-    })
+    //   // run both actions
+    //   return Promise.all([
+    //     Product.destroy({ where: { id: categoryTagsToRemove } }),
+    //     Product.bulkCreate(newCategoryTags),
+    //   ]);
+    // })
     .then((updatedCategoryTags) => res.json(updatedCategoryTags))
     .catch((err) => {
       // console.log(err);
