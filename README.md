@@ -6,12 +6,14 @@ This is the only back end solution you need for any E-Commerce!
 
 - [Description](#Description)
 - [Links](#Links)
-- [Screenshots](#Screenshots)
-- [User Instructions](#User-Instructions)
 - [Contributors](#Contributors)
 - [Quesitons](#Questions)
 
 ---
+
+## Links
+Video 1: https://www.youtube.com/watch?v=PKJ4pk5QTvw
+Video 2: https://www.youtube.com/watch?v=bn4qXYwYT7Q
 
 ## Contributors
 
